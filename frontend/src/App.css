@@ -4,6 +4,29 @@
   padding: 2rem;
   text-align: center;
 }
+.upload-container {
+  margin-bottom: 20px;
+}
+.upload-btn {
+  height: 80px;
+  width: 80px;
+  border-radius: 9999px;
+  background: rgba(0, 224, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(0, 224, 255, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.upload-btn:hover {
+  transform: scale(1.1);
+}
+
+.upload-msg {
+  margin-top: 10px;
+  color: #00e0ff;
+}
 
 .logo {
   height: 6em;

@@ -65,4 +65,37 @@ export async function queryRAG(request: QueryRequest): Promise<QueryResponse> {
   }
 }
 
+export async function uploadPDF(file: File) {
+  const url = `${import.meta.env.VITE_API_BASE_URL}/upload`;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error("PDF upload failed");
+  }
+
+  return response.json();
+}
+
+export async function uploadImage(file: File): Promise<{ chunks: number }> {
+  const form = new FormData();
+  form.append("file", file);
+
+  const res = await fetch(`${API_BASE_URL}/upload-image`, {
+    method: "POST",
+    body: form,
+  });
+
+  if (!res.ok) throw new Error("Upload failed");
+  return res.json();
+}
+
+
+
 export { ApiError };

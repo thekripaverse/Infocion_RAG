@@ -8,7 +8,8 @@ import { TranscriptPanel } from '@/components/TranscriptPanel';
 import { ResponseCard } from '@/components/ResponseCard';
 import { ChatSidebar } from '@/components/ChatSidebar';
 import { ErrorBanner } from '@/components/ErrorBanner';
-
+import UploadPDF from "@/components/UploadPDF";
+import UploadImage from '@/components/UploadImage';
 const Index = () => {
   // Chat state
   const [interactions, setInteractions] = useState<ChatInteraction[]>([]);
@@ -200,6 +201,9 @@ const Index = () => {
 
           {/* Voice Input Section */}
           <section className="flex flex-col items-center px-6 py-8">
+  
+  {/* Mic + Upload Row */}
+          <div className="flex items-center gap-8">
             <VoiceRecorder
               isListening={isListening}
               isSupported={isSupported}
@@ -208,6 +212,9 @@ const Index = () => {
               onStop={handleStopRecording}
               disabled={isSubmitting}
             />
+            <UploadPDF/>
+            <UploadImage />
+          </div>
 
             <div className="mt-8 w-full max-w-2xl">
               <TranscriptPanel
